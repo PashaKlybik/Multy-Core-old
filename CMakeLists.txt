@@ -12,14 +12,15 @@ set(LIBSECP256K1_BIN_PATH "" CACHE PATH "Path to directory with prebuild libsecp
 project(multy)
 
 add_executable(
-    multy
-    main.cpp
+        multy
+        main.cpp
 )
 target_link_libraries(multy PRIVATE multy_core)
 target_include_directories(multy PRIVATE .)
 
 add_subdirectory(multy_core)
 add_subdirectory(third-party)
+
 
 if(WITH_TESTS)
     target_compile_definitions(multy PRIVATE WITH_TESTS)
