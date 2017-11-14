@@ -39,9 +39,11 @@ if (DEFINED IOS_PLATFORM)
     )
     target_compile_options(libwally-core
         PRIVATE
-            -W  -Wcast-align -Wnested-externs -Wshadow -Wstrict-prototypes -Wformat -Wformat-security
-            -Wformat-nonliteral  -O3 -D_FORTIFY_SOURCE=1 -fstack-protector-strong -DNDEBUG=1 -flto -flax-vector-conversions
-            -Wno-unused-function -Wno-long-long -Wno-overlength-strings -Wno-variadic-macros  -MP
+            -W  -Wcast-align -Wnested-externs -Wshadow -Wstrict-prototypes
+            -Wformat -Wformat-securit  -Wformat-nonliteral  -O3
+            -D_FORTIFY_SOURCE=1 -fstack-protector-strong -DNDEBUG=1 -flto
+            -flax-vector-conversions -Wno-unused-function -Wno-long-long
+            -Wno-overlength-string -Wno-variadic-macros  -MP
     )
 elseif (DEFINED ANDROID)
     message("Building libsecp256k1 to Android from source")
@@ -67,6 +69,6 @@ target_compile_definitions(secp256k1
         PUBLIC
           -DHAVE_CONFIG_H
         PRIVATE
-          -DENABLE_MODULE_RANGEPROOF -DENABLE_MODULE_SURJECTIONPROOF -DENABLE_MODULE_ECDH -DENABLE_MODULE_GENERATOR
-          -DENABLE_MODULE_RECOVERY #optional
+          -DENABLE_MODULE_RANGEPROOF -DENABLE_MODULE_SURJECTIONPROOF
+          -DENABLE_MODULE_ECDH -DENABLE_MODULE_GENERATOR
 )
