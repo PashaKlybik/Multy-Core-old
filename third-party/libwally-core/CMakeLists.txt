@@ -31,7 +31,6 @@ target_include_directories(libwally-core
 )
 target_link_libraries (libwally-core secp256k1)
 
-
 if (DEFINED IOS_PLATFORM)
     message("Building libsecp256k1 to iOS from source")
     add_library(secp256k1 STATIC
@@ -48,9 +47,9 @@ if (DEFINED IOS_PLATFORM)
 elseif (DEFINED ANDROID)
     message("Building libsecp256k1 to Android from source")
     add_library(secp256k1 SHARED
-         src/secp256k1/contrib/lax_der_parsing.c
-         src/secp256k1/contrib/lax_der_privatekey_parsing.c
-         src/secp256k1/src/secp256k1.c
+        src/secp256k1/contrib/lax_der_parsing.c
+        src/secp256k1/contrib/lax_der_privatekey_parsing.c
+        src/secp256k1/src/secp256k1.c
     )
 endif ()
 
@@ -66,9 +65,9 @@ target_compile_options(secp256k1
         -std=c89
 )
 target_compile_definitions(secp256k1
-        PUBLIC
-          -DHAVE_CONFIG_H
-        PRIVATE
-          -DENABLE_MODULE_RANGEPROOF -DENABLE_MODULE_SURJECTIONPROOF
-          -DENABLE_MODULE_ECDH -DENABLE_MODULE_GENERATOR
+    PUBLIC
+        -DHAVE_CONFIG_H
+    PRIVATE
+        -DENABLE_MODULE_RANGEPROOF -DENABLE_MODULE_SURJECTIONPROOF
+        -DENABLE_MODULE_ECDH -DENABLE_MODULE_GENERATOR
 )
