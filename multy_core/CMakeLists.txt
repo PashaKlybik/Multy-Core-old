@@ -98,6 +98,10 @@ add_library(multy_core
     src/golos/golos_facade.cpp
     src/golos/golos_account.cpp
     src/golos/golos_transaction.cpp
+
+    # EOS
+    EOS.h
+    src/EOS/EOS_facade.cpp
 )
 
 # Run a script that generates version.h in build dir
